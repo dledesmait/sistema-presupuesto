@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- JS -->
+    <script src="js/jquey.min.js"></script>
+    <script src="js/jspdf.debug.js"></script>
+    <script src="js/jspdf.autotable.mis.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+    <script src="js/jszip.min.js"></script>
+    <script src="numeroALetras.js"></script>
+    
+    <script src="js/qrcode.min.js"></script>
+    <script src="funciones.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <title>Presupuesto</title>
+
+</head>
+
+
+
+<body id="body">
+
+
+    <button id="btn-volver" class="btn btn-info oculto" onclick="volver()"> < Volver </button>
+
+    <!-- Logica -->
+    <!-- Presupuesto electricidad => Electricidad Loisotto | Electroplast -->
+    <!-- Presupuest refrigeracion => Unico modelo -->
+
+    <div id="menuPrincipal" class="menuPrincipal">
+      <h1 class="tituloSistema"> - Sistema presupuesto - </h1>  
+      <button class="btn btn-info btn-menu" onclick="mostrarPanel('sub_menuElectricidad');"> Presupuesto Electricidad </button>
+      <button class="btn btn-info btn-menu" onclick="mostrarPanel('refrigeracion');"> Presupuesto Refrigeraci&oacute;n </button>
+    </div>
+
+    <div id="sub_menuElectricidad" class="sub_menuElectricidad oculto">
+      <h1 class="tituloSistema"> - Presupuestos casas de electricidad - </h1>  
+      <button class="btn btn-info btn-menu" onclick="mostrarPanel('electricidad');"> Electricidad Loisotto </button>
+      <button class="btn btn-info btn-menu" onclick="mostrarPanel('electroplast');">Electroplast </button>
+    </div>
+
+
+    <div id="panelPrincipal" class="oculto">
+
+
+      <!-- Encabezado ELECTRICIDAD Loisotto-->
+      <div id="encabezadoElectricidad" class="encabezadoElectricidad oculto">
+          <h2 class="titulo"> Electricidad LOISOTTO</h2>
+          <h5> ****MATERIALES ELECTRICOS PARA LA CONSTRUCCION*ILUMINACION*ALARMAS****</h5>
+          <h5><i class="fas fa-map-marker-alt"></i> Colectora 11132&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 1884&nbsp;&nbsp;&nbsp;El Pato&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Berazategui * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fab fa-whatsapp"></i> (02229) 492-022</h5>
+      </div>
+
+      <!-- Encabezado ELECTRICIDAD Electroplast-->
+      <div id="encabezadoElectricidad_electroplast" class="encabezadoElectricidad_electroplast oculto">
+        <!--<h2 class="titulo"> Electro <span>plast</span> </h2>-->
+        <img class="logoElectroplat" src="js/electroplat.png" alt=".">
+        <h6> <i>Brindado servicios desde -1990-</i> </h6>
+        <h5> Distribuidora de Materiales electricos - Alarmas - Sistemas de Seguridad</h5>
+        <h5 style="font-size:18px;"><i class="fas fa-map-marker-alt"></i> Direcci&oacute;n: Calle 80&nbsp;N° 1618 e/27 y 28 &nbsp;La Plata,&nbsp;BUENOS AIRES.&nbsp;&nbsp;<i class="fab fa-whatsapp"></i>&nbsp;&nbsp;Tel/Fax: (0221) 451 4239</h5>
+      </div>
+
+      <!-- Encabezado REFRIGERACION -->
+      <div id="encabezadoRefrigeracion" class="encabezadoRefrigeracion oculto">
+       
+        <img class="logoPatagonia" src="js/type_2.webp" alt=".">
+        <h2 class="tituloRefrigeracion"> REFRIGERACI&Oacute;N "PATAGONIA"</h2>
+        <img class="logoPing" src="js/pig.png" alt=".">
+        <div class="row">
+          <div class="col-md-5">
+            <h6 id="articulosRefrigeracion"> REPUESTOS <br>HELADERAS <br> LAVARROPAS <br>SECARROPAS </h6>
+          </div>
+          <div class="col-md-7">
+            <h5 id="domicilioRefrigeracion"><i class="fas fa-map-marker-alt"></i> CALLE 413 n°&nbsp;182<br> Juan Mar&iacute;a Gutierrez<br><i class="fab fa-whatsapp"></i> (02229) 45-2200</h5>
+          </div>
+        </div>
+        <hr class="lineaInferiorTitulo">
+        <br> <br> <h3> - Presupuesto - </h3> 
+      </div>
+
+
+      <!-- Sub Encabezado ELECTRICIDAD Loisotto-->
+      <div class="row subencabezadoElectricidad oculto" id = "subencabezadoElectricidad" >
+        
+        <div class="col data1" style="margin-top: 10px;">
+          <label for="input_npresupuesto">PRESUPUESTO N°: </label>
+          <input id="input_npresupuesto" type="text" placeholder="XXXXX/XX"> <br>
+          <label for="input_cliente_presupuesto">Cliente&nbsp;&nbsp;&nbsp;: &nbsp;</label>
+          <input id="input_cliente_presupuesto" type="text" placeholder="Ingresar nombre"> <br>
+          <label for="input_domicilio_presupuesto"> Domicilio: &nbsp;</label>
+          <input id="input_domicilio_presupuesto" type="text" placeholder="Ingresar domicilio"> <br>
+          <label for=""> Cliente N° C7519</label> <br>
+        </div>
+
+        <div class="col data2" style="margin-top: 30px;">
+          <label for="input_fecha">Fecha: </label>
+          <input id="input_fecha" type="date"> <br><br>
+          <label for=""> <span>C.U.I.T : </span> <input type="text" id="nroCUIT" value="30-71527783-9"></label><br>
+        </div>
+        
+      </div>
+
+
+
+      <!-- Subencabezado Electricidad Electroplat -->
+      <div class="row subencabezadoElectricidad_electroplast oculto" id = "subencabezadoElectricidad_electroplast" >
+        
+        <div class="col data1" style="margin-top: 10px;">
+          <label for="input_npresupuesto">PRESUPUESTO N°: </label>
+          <input id="input_npresupuesto" type="text" placeholder="XXXXX/XX"> <br>
+          <label for="">Señores&nbsp;&nbsp;&nbsp;: &nbsp;SEGOVIA FERNANDO</label> <br>
+          <label for=""> Direcci&oacute;n: &nbsp;CALLE 620 N° 3663  * EL PATO</label>  <br>
+          <label for=""> Cliente N° C7519</label> <br>
+          <span style="margin-left: 52%;" id="nextel_electricidad" class="oculto"></span></td>
+        </div>
+
+        <div class="col data2" style="margin-top: 30px;">
+          <label for="input_fecha">Fecha: </label>
+          <input id="input_fecha" type="date"> <br><br>
+          <label for=""> <span>C.U.I.T : </span> <input type="text" id="nroCUIT" value="33-63975987-9"></label><br>
+          
+        </div>
+        
+      </div>
+
+      <!-- Subencabezado REFRIGERACION-->
+      <div class="row subencabezadoRefrigeracion oculto" id = "subencabezadoRefrigeracion" >
+        
+        <div class="col data1"> 
+          <label for="" > <b style="font-size: 18px;">Datos de cliente: </b><br><br>Apellido y Nombre&nbsp;&nbsp;&nbsp;: &nbsp;SEGOVIA FERNANDO</label><br>
+          <label for=""> Domicilio: &nbsp;CALLE 620 N° 3663  * EL PATO</label> <br>
+          <label for=""> Cliente N° C8594</label> <br>
+        </div>
+
+        <div class="col data2"><br>
+          <label for="input_npresupuesto_refrigeracion">Nro. Presupuesto: </label>
+          <input id="input_npresupuesto_refrigeracion" type="text" placeholder="XXXXX/XX"><br>
+          <label for="input_fecha_refrigeracion">Fecha emisi&oacute;n: </label>
+          <input id="input_fecha_refrigeracion" type="date"> <br>
+          <label for=""> <span>C.U.I.T : </span> <input type="text" id="nroCUIT" value="- -"></label><br>
+
+        </div>
+        
+      </div>
+
+    
+      <div class="encabezadoItems">
+          Condici&oacute;n de Pago: <br>
+          <hr class="new2">
+
+      </div>
+
+      <!-- TABLA PARA CARGA DE ARTICULOS -->
+
+        <div id="table" class="table-editable">
+          <table class="table table-responsive-md">
+            <thead>
+              <tr>
+                <th class="text-center">CANTIDAD</th>
+                <th class="text-center">CODIGO</th>
+                <th class="left">DESCRIPCION</th>
+                  
+                <th class="right">P.UNITARIO</th>
+                <th class="right">P.TOTAL</th>
+                
+                
+              </tr>
+            </thead>
+            <tbody>
+                <!-- Carga dinamica de filas-->
+            </tbody>
+          </table>
+
+
+          <div class="montoEnPesos">
+            Son : <span id="numeroEnLetras"></span>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-12 col-md-offset-12 col-xs-12 text-right" >
+              <button type="button" class="btn btn-primary mr-2" id="buttonAgregarFila" onclick="agregarFila()">Agregar Articulo</button>
+            </div>
+          </div>
+        
+        </div>
+    <!-- Editable table -->
+      
+    <!-- TOTALES -->
+    <hr class="new3">
+    <div id="mensajeInformativo" class="mensajeInformativo oculto">
+      <br>
+      <h6 style="margin-left: 5%; font-size: 17px;">
+        Los materiales electricos e importados no tienen garant&iacute;a ni devoluci&oacute;n
+      </h6>
+    </div>
+
+    
+
+    <div class="montoNeto right">
+      Neto: $<span id="totales1"> </span>
+    </div>
+
+    <div class="montoTotal right">
+      Total: $<span id="totales2"> </span>
+    </div>
+
+    <div id="montoTotalDescuento" class="montoTotalDescuento right oculto">
+      Total c/ <span id="porcentajeDesc"></span> % descuento: $ <span id="totales3"> </span>
+    </div>
+    <button id="btn-descuento" class="btn btn-warning btn-descuento" data-toggle="modal" data-target="#exampleModal">Aplicar % descuento</button>
+    <button id="btn-Quitardescuento" class="btn btn-danger btn-descuento oculto" onclick="eliminarDcto();">Eliminar % descuento</button>
+
+    <div id="mensajeInformativo_electroplat" class="mensajeInformativo oculto">
+
+      <div class="row">
+        <br><br>
+        <div class="col-md-3">
+          <center><img class="logoServicop" src="js/servicop.jpg" alt="."></center>
+          <h6 style="text-align: center; font-size: 10px;">
+            <i>Calle 50 N°742 - La Plata - Tel:421-3314</i>
+            <i><br>CUIT: 30-70955654-8</i>
+            <i><br>www.imprentaservicop.com.ar</i>
+          </h6>
+        </div>
+        <div class="col-md-9">
+          <br>
+          <h6 style="text-align: center; font-size: 13px; color:#2e2e2e">
+            ~ Los materiales electricos e importados no tienen garant&iacute;a ni devoluci&oacute;n ~
+          </h6>
+          <hr>
+          <h6 style="text-align: center; font-size: 13px; font-style: italic; color:#595959">
+            En Electroplat encontrar&aacute; las mejores marcas de materiales electricos para el hogar, la construcci&oacute;n, la industria y el gremio.
+            <br>Cont&aacute;ctenos y conozca los materiales electricos y de iluminaci&oacute;n que tenemos a su disposici&oacute;n.
+            <br>Brindamos asesoramiento y soluciones pr&aacute;cticas a costos competitivos.
+          </h6>
+        </div>
+      </div>
+      
+    </div>
+
+  
+    <div class="row">
+      <div class="col-md-12 col-md-offset-12 col-xs-12 text-center" >
+        <!--<button type="button" class="btn btn-primary mr-2" id="buttonGenerarArchivo" onclick="onClickButton('EMAIL')">Generar archivo</button>
+
+        <a target="_blank" id="linkEnviarEmail"
+        href="mailto:?subject=Presupuesto de Javier F. Segovia&body=Hola, te adjunto el presupuesto.%0D%0ASaludos.%0D%0A%0D%0AJavier F. Segovia.%0D%0A2396-606837">
+          <button type="button" class="btn btn-success mr-2" id="buttonEnviarPorEmail">Enviar por email</button>
+        </a>
+
+        <a target="_blank" href="https://wa.me/+5492396606837/">
+          <button type="button" class="btn btn-success mr-2" id="buttonEnviarPorWhatsapp">Enviar por whatsapp</button>
+        </a>-->
+
+        <button type="button" class="btn btn-success mr-2" id="buttonImprimir" onclick="onClickButton('IMPRIMIR')"> Imprimir </button>
+        
+      </div>
+    </div>
+
+
+    <!-- Modal DESCUENTO-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Aplicando descuento</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Descuento: </span>
+                </div>
+                <input type="text" id="descuento_aplicar" class="form-control" value="10" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+              </div>          
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="aplicarDcto();" data-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+   
+</body>
+</html>

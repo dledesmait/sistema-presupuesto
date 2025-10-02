@@ -67,9 +67,17 @@ hr.new3 {
  #input_cliente_presupuesto, #input_domicilio_presupuesto {
     border-style: none;
     margin-bottom: 20px;
-    width: 350px;
+    width: 300px;
     font-weight: bold;
     margin-top: 5px;
+}
+#input_descuento_en_texto {
+    border-style: none;
+    margin-bottom: 20px;
+    width: 650px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 25px;
 }
 #input_fecha_refrigeracion, #input_fecha{
     border-style: none;
@@ -178,7 +186,7 @@ button#buttonImprimir{
     display: none;
 }
 
-#nroCUIT{
+#nroCUIT, #ivaCondicion, #nroCliente{
     border-style: none;
 }
 

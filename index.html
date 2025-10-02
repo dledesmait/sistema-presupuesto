@@ -99,15 +99,19 @@
           <input id="input_npresupuesto" type="text" placeholder="XXXXX/XX"> <br>
           <label for="input_cliente_presupuesto">Cliente&nbsp;&nbsp;&nbsp;: &nbsp;</label>
           <input id="input_cliente_presupuesto" type="text" placeholder="Ingresar nombre"> <br>
-          <label for="input_domicilio_presupuesto"> Domicilio: &nbsp;</label>
-          <input id="input_domicilio_presupuesto" type="text" placeholder="Ingresar domicilio"> <br>
-          <label for=""> Cliente N° C7519</label> <br>
+          <label for="input_domicilio_presupuesto"> Domicilio: &nbsp;</label> <br>
+          <input id="input_domicilio_presupuesto" type="text" placeholder="Ingresar dato domicilio"> <br>
+          <input id="input_domicilio_presupuesto" type="text" placeholder="Ingresar dato domicilio"> <br>
+          <input id="input_domicilio_presupuesto" type="text" placeholder="Ingresar dato domicilio"> <br>
+
+          <label for=""> <span>Cliente Nº: </span> <input style="font-weight: bold;" type="text" id="nroCliente" value="C7519"></label><br>
         </div>
 
         <div class="col data2" style="margin-top: 30px;">
           <label for="input_fecha">Fecha: </label>
           <input id="input_fecha" type="date"> <br><br>
-          <label for=""> <span>C.U.I.T : </span> <input type="text" id="nroCUIT" value="30-71527783-9"></label><br>
+          <label for=""> <span>IVA : </span> <input style="font-weight: bold;" type="text" id="ivaCondicion" value="Responsable inscripto"></label><br><br>
+          <label for=""> <span>C.U.I.T : </span> <input style="font-weight: bold;" type="text" id="nroCUIT" value="30-71527783-9"></label><br>
         </div>
         
       </div>
@@ -120,17 +124,21 @@
         <div class="col data1" style="margin-top: 10px;">
           <label for="input_npresupuesto">PRESUPUESTO N°: </label>
           <input id="input_npresupuesto" type="text" placeholder="XXXXX/XX"> <br>
-          <label for="">Señores&nbsp;&nbsp;&nbsp;: &nbsp;SEGOVIA FERNANDO</label> <br>
-          <label for=""> Direcci&oacute;n: &nbsp;CALLE 620 N° 3663  * EL PATO</label>  <br>
-          <label for=""> Cliente N° C7519</label> <br>
-          <span style="margin-left: 52%;" id="nextel_electricidad" class="oculto"></span></td>
+          <label for="input_cliente_presupuesto">Cliente&nbsp;&nbsp;&nbsp;: &nbsp;</label>
+          <input id="input_cliente_presupuesto" type="text" placeholder="Ingresar nombre"> <br>
+          <label for="input_domicilio_presupuesto"> Domicilio: &nbsp;</label> <br>
+          <input id="input_domicilio_presupuesto" type="text" placeholder="Ingresar dato domicilio"> <br>
+          <input id="input_domicilio_presupuesto" type="text" placeholder="Ingresar dato domicilio"> <br>
+          <input id="input_domicilio_presupuesto" type="text" placeholder="Ingresar dato domicilio"> <br>
+
+          <label for=""> <span>Cliente Nº: </span> <input style="font-weight: bold;" type="text" id="nroCliente" value="C7519"></label><br>
         </div>
 
         <div class="col data2" style="margin-top: 30px;">
           <label for="input_fecha">Fecha: </label>
           <input id="input_fecha" type="date"> <br><br>
-          <label for=""> <span>C.U.I.T : </span> <input type="text" id="nroCUIT" value="33-63975987-9"></label><br>
-          
+          <label for=""> <span>IVA : </span> <input style="font-weight: bold;" type="text" id="ivaCondicion" value="Responsable inscripto"></label><br><br>
+          <label for=""> <span>C.U.I.T : </span> <input style="font-weight: bold;" type="text" id="nroCUIT" value="30-71527783-9"></label><br>
         </div>
         
       </div>
@@ -222,6 +230,9 @@
     </div>
     <button id="btn-descuento" class="btn btn-warning btn-descuento" data-toggle="modal" data-target="#exampleModal">Aplicar % descuento</button>
     <button id="btn-Quitardescuento" class="btn btn-danger btn-descuento oculto" onclick="eliminarDcto();">Eliminar % descuento</button>
+
+    <input id="input_descuento_en_texto" type="text" placeholder="Ingresar descuento (Ej: 5% de descuento pago en efectivo)"> <br>
+
 
     <div id="mensajeInformativo_electroplat" class="mensajeInformativo oculto">
 
